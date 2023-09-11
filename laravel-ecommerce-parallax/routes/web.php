@@ -28,6 +28,8 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/add-product','create')->name('create');
     Route::post('/add-product','store')->name('store');
     Route::get('/edit-product/{product}','edit')->name('edit-product');
+    Route::put('/edit-product/{product}','update')->name('edit-product');
+    Route::delete('/delete-product/{product}','delete');
 
 });
 Route::controller(CategoryController::class)->group(function(){

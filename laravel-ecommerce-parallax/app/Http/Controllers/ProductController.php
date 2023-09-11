@@ -37,4 +37,20 @@ class ProductController extends Controller
         $product=Product::find($product);
         return view('edit-product',compact('product','categories'));
     }
+    public function update(Request $request,$product){
+        $input = $request->all();
+        $product=Product::find($product);
+        $product->name=$input['name'];
+        $product->price=$input['price'];
+        $product->category_id=$input['category_id'];
+
+        $product->save();
+        return redirect('/');
+
+    }
+    public function delete($product){
+        Product::find($product)->delete();
+        return redirect()->back();
+    }
+
 }

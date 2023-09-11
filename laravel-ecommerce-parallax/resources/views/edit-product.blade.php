@@ -7,13 +7,14 @@
 
 <form method="post" action="{{url('/edit-product/' .$product->id)}}">
     {{csrf_field()}}
+    @method('PUT')
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Product Name</label>
-    <input type="text" name="name" class="form-control"  placeholder="Enter Name">
+    <label  class="form-label">Product Name</label>
+    <input type="text" name="name" value="{{old('name') ?? $product->name}}" class="form-control"  placeholder="Enter Name">
   </div>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Product Price</label>
-    <input type="number" name ="price" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+    <label  class="form-label">Product Price</label>
+    <input type="number" name ="price" value="{{old('price') ?? $product->price}}"  class="form-control"  placeholder="Enter Price">
   </div>
 
   <select name="category_id" class="form-control">

@@ -23,7 +23,19 @@
 <td>{{$product->name}}</td>
 <td>{{$product->price}}</td>
 <td>{{$product->category->name}}</td>
-<td><a href="{{url('/edit-product/' .$product->id)}}">Edit</a></td>
+
+<td style="display:flex">
+<div>
+<a href="{{url('/edit-product/' .$product->id)}}" class="btn btn-primary mr-2">Edit</a>
+</div>
+
+<form method="post" action="{{url('/delete-product/' .$product->id)}}">
+{{method_field('delete')}}
+{{csrf_field()}}
+<button class="btn btn-danger" type="submit"> Delete</button>
+</form>
+
+</td>
 @endforeach
  </tbody>
 </table>
